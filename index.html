@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- My CSS & JS -->
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+
+  <title>Social Media Dashboard</title>
+</head>
+
+<body class="dark">
+  <div class="bg">
+    <div class="bg-top"></div>
+    <div class="bg-bottom"></div>
+  </div>
+  <main>
+    <section class="top" aria-labelledby="section-title">
+      <header>
+        <div>
+          <h1 id="section-title">Social Media Dashboard</h1>
+          <p>Total Followers: 23,004</p>
+        </div>
+        <div class="theme-switcher">
+          <p>Dark Mode</p>
+          <label class="toggle-control" data-theme-toggle>
+            <input type="checkbox" checked="checked">
+            <span class="control"></span>
+          </label>
+        </div>
+      </header>
+      <div class="top-grid grid">
+        <article class="top-card facebook" tabindex="0">
+          <header>
+            <div class="social-icon"></div>
+            <h3 class="card-heading">@nathanf</h3>
+          </header>
+          <section>
+            <span class="followers">1987</span>
+            <span class="desc">Followers</span>
+          </section>
+          <footer class="gained-lost gained">
+            <div class="arrow"></div>
+            <span>12 Today</span>
+          </footer>
+        </article>
+        <article class="top-card twitter" tabindex="0">
+          <header>
+            <div class="social-icon"></div>
+            <h3 class="card-heading">@nathanf</h3>
+          </header>
+          <section>
+            <span class="followers">1044</span>
+            <span class="desc">Followers</span>
+          </section>
+          <footer class="gained-lost gained">
+            <div class="arrow"></div>
+            <span>99 Today</span>
+          </footer>
+        </article>
+        <article class="top-card instagram" tabindex="0">
+          <header>
+            <div class="social-icon"></div>
+            <h3 class="card-heading">@realnathanf</h3>
+          </header>
+          <section>
+            <span class="followers">11k</span>
+            <span class="desc">Followers</span>
+          </section>
+          <footer class="gained-lost gained">
+            <div class="arrow"></div>
+            <span>1099 Today</span>
+          </footer>
+        </article>
+        <article class="top-card youtube" tabindex="0">
+          <header>
+            <div class="social-icon"></div>
+            <h3 class="card-heading">Nathan F.</h3>
+          </header>
+          <section>
+            <span class="followers">8239</span>
+            <span class="desc">Subscribers</span>
+          </section>
+          <footer class="gained-lost lost">
+            <div class="arrow"></div>
+            <span>144 Today</span>
+          </footer>
+        </article>
+      </div>
+    </section>
+    <section class="bottom" aria-labelledby="section-title">
+      <header>
+        <h2 id="section-title">Overview - Today</h2>
+      </header>
+      <div class="bottom-grid grid">
+        <article class="bottom-card facebook" tabindex="0">
+          <h4 class="card-heading">Page Views</h4>
+          <div class="social-icon"></div>
+          <h1>87</h1>
+          <div class="gained-lost gained">
+            <div class="arrow"></div>
+            <span>3%</span>
+          </div>
+        </article>
+        <article class="bottom-card facebook" tabindex="0">
+          <h4 class="card-heading">Likes</h4>
+          <div class="social-icon"></div>
+          <h1>52</h1>
+          <div class="gained-lost lost">
+            <div class="arrow"></div>
+            <span>2%</span>
+          </div>
+        </article>
+        <article class="bottom-card instagram" tabindex="0">
+          <h4 class="card-heading">Likes</h4>
+          <div class="social-icon"></div>
+          <h1>5462</h1>
+          <div class="gained-lost gained">
+            <div class="arrow"></div>
+            <span>2257%</span>
+          </div>
+        </article>
+        <article class="bottom-card instagram" tabindex="0">
+          <h4 class="card-heading">Profile Views</h4>
+          <div class="social-icon"></div>
+          <h1>52k</h1>
+          <div class="gained-lost gained">
+            <div class="arrow"></div>
+            <span>1375%</span>
+          </div>
+        </article>
+        <article class="bottom-card twitter" tabindex="0">
+          <h4 class="card-heading">Retweets</h4>
+          <div class="social-icon"></div>
+          <h1>117</h1>
+          <div class="gained-lost gained">
+            <div class="arrow"></div>
+            <span>303%</span>
+          </div>
+        </article>
+        <article class="bottom-card twitter" tabindex="0">
+          <h4 class="card-heading">Likes</h4>
+          <div class="social-icon"></div>
+          <h1>507</h1>
+          <div class="gained-lost gained">
+            <div class="arrow"></div>
+            <span>553%</span>
+          </div>
+        </article>
+        <article class="bottom-card youtube" tabindex="0">
+          <h4 class="card-heading">Likes</h4>
+          <div class="social-icon"></div>
+          <h1>107</h1>
+          <div class="gained-lost lost">
+            <div class="arrow"></div>
+            <span>19%</span>
+          </div>
+        </article>
+        <article class="bottom-card youtube" tabindex="0">
+          <h4 class="card-heading">Total Views</h4>
+          <div class="social-icon"></div>
+          <h1>1407</h1>
+          <div class="gained-lost lost">
+            <div class="arrow"></div>
+            <span>12%</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>

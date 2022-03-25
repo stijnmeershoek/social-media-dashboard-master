@@ -1,0 +1,501 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  /* ------------
+    ### Primary 
+    ------------ */
+
+  --lime-green: hsl(163, 72%, 41%);
+  --bright-red: hsl(356, 69%, 56%);
+
+  --facebook: hsl(208, 92%, 53%);
+  --twitter: hsl(203, 89%, 53%);
+  --instagram: hsl(37, 97%, 70%), hsl(329, 70%, 58%);
+  --youtube: hsl(348, 97%, 39%);
+
+  /* #### Dark Theme */
+
+  --dark-toggle: hsl(210, 78%, 56%), hsl(146, 68%, 55%);
+
+  /* #### Light Theme */
+
+  ---light-toggle: hsl(230, 22%, 74%);
+
+  /* ------------
+    ### Neutral 
+    ------------ */
+
+  /* #### Dark Theme */
+
+  --dark-bg: hsl(230, 17%, 14%);
+  --dark-top-bg-pattern: hsl(232, 19%, 15%);
+  --dark-card-bg: hsl(228, 28%, 20%);
+  --dark-card-bg-hover: hsl(228, 26%, 27%);
+  --desaturated-blue-text: hsl(228, 34%, 66%);
+  --white-text: hsl(0, 0%, 100%);
+
+  /* #### Light Theme */
+
+  --light-bg: hsl(0, 0%, 100%);
+  --light-top-bg-pattern: hsl(225, 100%, 98%);
+  --light-card-bg: hsl(227, 47%, 96%);
+  --light-card-bg-hover: hsl(232, 33%, 91%);
+  --dark-grayish-blue-text: hsl(228, 12%, 44%);
+  --very-dark-blue-text: hsl(230, 17%, 14%);
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  inset: 0 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+body.light::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+body.light::-webkit-scrollbar-thumb {
+  background-color: hsl(227, 20%, 80%);
+  border-radius: 10px;
+}
+
+body.dark::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+body.dark::-webkit-scrollbar-thumb {
+  background-color: hsl(228, 10%, 36%);
+  border-radius: 10px;
+}
+
+body.light {
+  color-scheme: light;
+  background-color: var(--light-bg);
+}
+
+body.dark {
+  color-scheme: dark;
+  background-color: var(--dark-bg);
+}
+
+main {
+  width: min(100%, 1100px);
+  height: min(100%, 850px);
+  position: relative;
+  margin: auto;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h3.card-heading {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+p {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.light :is(.top #section-title, .followers, .bottom-card h1) {
+  color: var(--very-dark-blue-text);
+}
+
+.dark :is(#section-title, .followers, .bottom-card h1) {
+  color: var(--white-text);
+}
+
+.light :is(.bottom #section-title, p, .card-heading, .desc) {
+  color: var(--desaturated-blue-text);
+}
+
+.dark :is(p, .card-heading, .desc) {
+  color: var(--dark-grayish-blue-text);
+}
+
+.light :is(.top-card, .bottom-card) {
+  background-color: var(--light-card-bg);
+}
+
+.dark :is(.top-card, .bottom-card) {
+  background-color: var(--dark-card-bg);
+}
+
+.bg {
+  position: absolute;
+  inset: 0 0 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.bg-top {
+  height: max(30vmin, 200px);
+}
+
+.bg-bottom {
+  flex-grow: 1;
+}
+
+.light .bg-top {
+  background-color: var(--light-top-bg-pattern);
+}
+
+.light .bg-bottom {
+  background-color: var(--light-bg);
+}
+
+.dark .bg-top {
+  background-color: var(--dark-top-bg-pattern);
+}
+
+.dark .bg-bottom {
+  background-color: var(--dark-bg);
+}
+
+.top > header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.theme-switcher {
+  height: fit-content;
+  margin-top: 10px;
+  display: flex;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.light .theme-switcher:hover .toggle-control .control {
+  background: linear-gradient(to right, var(--dark-toggle));
+}
+
+.dark .theme-switcher:hover > p,
+.dark .theme-switcher:focus-within > p {
+  color: var(--white-text);
+}
+
+.dark .theme-switcher:hover .toggle-control .control:after,
+.dark .theme-switcher:focus-within .toggle-control .control:after {
+  background: var(--dark-card-bg-hover);
+}
+
+.theme-switcher p {
+  line-height: 24px;
+  margin-right: 15px;
+}
+
+.toggle-control {
+  display: block;
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.toggle-control input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.toggle-control input:checked ~ .control {
+  background: linear-gradient(to right, var(--dark-toggle));
+}
+.toggle-control input:checked ~ .control:after {
+  left: 3px;
+  background: var(--dark-card-bg);
+}
+.toggle-control .control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 50px;
+  border-radius: 12px;
+  background: var(---light-toggle);
+}
+.toggle-control .control:after {
+  content: "";
+  position: absolute;
+  left: 29px;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 12px;
+  background: var(--light-card-bg);
+  transition: left 0.15s ease-in;
+}
+
+.light .toggle-control input:checked ~ .control:after .light.toggle-control .control:after .card-heading {
+  font-size: 14px;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.facebook .social-icon {
+  background-image: url(./images/icon-facebook.svg);
+}
+
+.twitter .social-icon {
+  background-image: url(./images/icon-twitter.svg);
+}
+
+.instagram .social-icon {
+  background-image: url(./images/icon-instagram.svg);
+}
+
+.youtube .social-icon {
+  background-image: url(./images/icon-youtube.svg);
+}
+
+.followers {
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.desc {
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  text-align: center;
+  text-indent: 0.4em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.gained-lost {
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.gained-lost .arrow {
+  width: 8px;
+  height: 4px;
+  margin-right: 5px;
+  background-repeat: no-repeat;
+}
+
+.gained {
+  color: var(--lime-green);
+}
+
+.lost {
+  color: var(--bright-red);
+}
+
+.gained .arrow {
+  background-image: url(./images/icon-up.svg);
+}
+
+.lost .arrow {
+  background-image: url(./images/icon-down.svg);
+}
+
+.grid {
+  width: 100%;
+  display: grid;
+  row-gap: 25px;
+  column-gap: 30px;
+}
+
+.top-grid {
+  margin-top: 50px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.top-card {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.top-card section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-card header {
+  display: flex;
+}
+
+.top-card .social-icon {
+  margin-right: 10px;
+}
+
+.top-card::after {
+  content: "";
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.top-card.facebook::after {
+  background-color: var(--facebook);
+}
+
+.top-card.twitter::after {
+  background-color: var(--twitter);
+}
+
+.top-card.instagram::after {
+  background: linear-gradient(to right, var(--instagram));
+}
+
+.top-card.youtube::after {
+  background-color: var(--youtube);
+}
+
+.bottom-grid {
+  margin-top: 25px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.bottom-card {
+  padding: 25px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: repeat(2, max-content);
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.bottom-card h1 {
+  font-size: 32px;
+}
+
+.bottom-card .gained-lost,
+.bottom-card h1 {
+  margin-top: auto;
+}
+
+.bottom-card .gained-lost,
+.bottom-card .social-icon {
+  justify-self: end;
+}
+
+.light .top-card:hover,
+.light .bottom-card:hover,
+.light .top-card:focus-visible,
+.light .bottom-card:focus-visible {
+  background-color: var(--light-card-bg-hover);
+}
+
+.dark .top-card:hover,
+.dark .bottom-card:hover,
+.dark .top-card:focus-visible,
+.dark .bottom-card:focus-visible {
+  background-color: var(--dark-card-bg-hover);
+}
+
+@media screen and (max-width: 1200px) {
+  body {
+    overflow-y: scroll;
+    height: fit-content;
+  }
+  main {
+    height: fit-content;
+    padding-inline: 75px;
+  }
+  .top-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .bottom {
+    margin-top: 100px;
+  }
+  .bottom-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    padding-inline: 50px;
+  }
+  .top-grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  .bottom-grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+  }
+}
+
+@media screen and (max-height: 780px) {
+  main {
+    padding-bottom: 40px;
+  }
+}
+
+@media screen and (max-height: 740px) {
+  body {
+    overflow-y: scroll;
+    height: fit-content;
+  }
+  main {
+    height: fit-content;
+  }
+  .bottom {
+    margin-top: 40px;
+  }
+}
